@@ -1,0 +1,90 @@
+.container {
+  max-width: calc(1174px + 30px);
+  padding: 0px 15px;
+  margin: 0 auto;
+  width: 100%;
+}
+.container-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: calc(870px + 30px);
+    padding: 0px 15px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 10px;
+    border: 1px solid black;
+}
+h1 {
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+input {
+  border-radius: 12px;
+  background-color: aquamarine;
+  width: 300px;
+  height: 48px;
+}
+ul {
+  list-style: none;
+}
+.pen{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 12px;
+}
+#weatherList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+    gap: 10px;
+background-image: url(/image/sun.jpg);
+background-position: center;
+object-fit: cover;
+border-radius: 50px;
+font-weight: 800;
+}
+.weatherList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 20px;
+    gap: 10px;
+}
+.myList{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aquamarine;
+    color:white;
+    max-width: (800px + 30px) ;
+    padding: 0px 15px;
+    width: 300px;
+    margin: 0 auto;
+    height: 32px;
+    color: black;
+    border-radius: 12px;
+}
+#myForms{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+li{
+    list-style: none;
+}
+#twoForms{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+    flex-direction: column;
+}
