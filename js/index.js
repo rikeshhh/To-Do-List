@@ -1,34 +1,33 @@
-// const data = fs.readFileSync('data.json');
-// const jsonData = JSON.parse(data);
-// async function fetchWeather() {
-//  const url = `https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Kathmandu`;
-//     const options = {
-//       method: "GET",
-//       headers: {
-//         "X-RapidAPI-Key": "29b07914aemshbbb733b3a9594e2p15a0c0jsna427e95f6301",
-//         "X-RapidAPI-Host": "weather-by-api-ninjas.p.rapidapi.com",
-//       },
-//     };
 
-//     try {
-//       const response = await fetch(url, options);
-//       const result = await response.json();
-//       const weather = document.getElementById('weatherList')
-//       const weatherList = document.createElement('li');
-//       const temperature = document.getElementById('temperature')
-//     temperature.textContent = `${result.temp}°C`;
-//     const city = document.getElementById('city');
-//     const dateShow = document.getElementById('dateShow');
-//     dateShow.textContent = new Date();
-//     city.textContent = userWeather;
-//       weatherList.textContent=new Date()
-//       weather.appendChild(weatherList)
-//       weatherList.appendChild(city)
-//       console.log(result);
-//     }catch(error){
-//         console.log('error while fetching data',error)
-//     }
-// }
+async function fetchWeather() {
+ const url = `https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Kathmandu`;
+    const options = {
+      method: "GET",
+      headers: {
+        "X-RapidAPI-Key": "29b07914aemshbbb733b3a9594e2p15a0c0jsna427e95f6301",
+        "X-RapidAPI-Host": "weather-by-api-ninjas.p.rapidapi.com",
+      },
+    };
+
+    try {
+      const response = await fetch(url, options);
+      const result = await response.json();
+      const weather = document.getElementById('weatherList')
+      const weatherList = document.createElement('li');
+      const temperature = document.getElementById('temperature')
+    temperature.textContent = `${result.temp}°C`;
+    const city = document.getElementById('city');
+    const dateShow = document.getElementById('dateShow');
+    dateShow.textContent = new Date();
+    city.textContent = userWeather;
+      weatherList.textContent=new Date()
+      weather.appendChild(weatherList)
+      weatherList.appendChild(city)
+      console.log(result);
+    }catch(error){
+        console.log('error while fetching data',error)
+    }
+}
 
 // function submitData (event){
 //     event.preventDefault();
@@ -65,24 +64,27 @@ formVal.addEventListener("submit", async (event) => {
 
   const data = {
     userInput: userInput,
+    date: new Date().toLocaleDateString('en'),
+    time: new Date().toLocaleTimeString('en')
   };
 
-  try {
-    const response = await fetch("http://localhost:3000/data", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (response.ok) {
-      console.log("Data submitted successfully");
+  if (userInput == "") {
+    alert("inputfield cant be empty");
+  } else {
+    try {
+      const response = await fetch("http://localhost:3000/data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+    } catch (error) {
+      console.error("Error:", error);
     }
-  } catch (error) {
-    console.error("Error:", error);
   }
 });
+
 const result = document.getElementById("myUnorderdList");
 
 async function fetchData() {
@@ -96,10 +98,17 @@ async function fetchData() {
 
     data.forEach((item) => {
       const listItem = document.createElement("li");
+      const dateEnlist = document.createElement('span');
+      const timeEnlist = document.createElement('span');
+      dateEnlist.textContent = item.date;
+      timeEnlist.textContent = item.time;
+      listItem.classList.add("list");
       const deleteButton = document.createElement("button");
-      deleteButton.textContent = "Delete";
+      deleteButton.classList.add("deleteButton");
       deleteButton.addEventListener("click", () => deleteData(item.id));
       listItem.textContent = item.userInput;
+      listItem.appendChild(dateEnlist)
+      listItem.appendChild(timeEnlist)
       listItem.appendChild(deleteButton);
       result.appendChild(listItem);
       userInput.value = "";
@@ -109,7 +118,6 @@ async function fetchData() {
   }
 }
 
-fetchData();
 async function deleteData(itemId) {
   try {
     const deleteResponse = await fetch(`http://localhost:3000/data/${itemId}`, {
@@ -120,8 +128,9 @@ async function deleteData(itemId) {
       throw new Error("Failed to delete item");
     }
 
-    fetchData();
   } catch (error) {
     console.error("Error:", error);
   }
 }
+fetchData();
+
