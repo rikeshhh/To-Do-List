@@ -1,33 +1,33 @@
 
-async function fetchWeather() {
- const url = `https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Kathmandu`;
-    const options = {
-      method: "GET",
-      headers: {
-        "X-RapidAPI-Key": "29b07914aemshbbb733b3a9594e2p15a0c0jsna427e95f6301",
-        "X-RapidAPI-Host": "weather-by-api-ninjas.p.rapidapi.com",
-      },
-    };
+// async function fetchWeather() {
+//  const url = `https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=Kathmandu`;
+//     const options = {
+//       method: "GET",
+//       headers: {
+//         "X-RapidAPI-Key": "29b07914aemshbbb733b3a9594e2p15a0c0jsna427e95f6301",
+//         "X-RapidAPI-Host": "weather-by-api-ninjas.p.rapidapi.com",
+//       },
+//     };
 
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json();
-      const weather = document.getElementById('weatherList')
-      const weatherList = document.createElement('li');
-      const temperature = document.getElementById('temperature')
-    temperature.textContent = `${result.temp}°C`;
-    const city = document.getElementById('city');
-    const dateShow = document.getElementById('dateShow');
-    dateShow.textContent = new Date();
-    city.textContent = userWeather;
-      weatherList.textContent=new Date()
-      weather.appendChild(weatherList)
-      weatherList.appendChild(city)
-      console.log(result);
-    }catch(error){
-        console.log('error while fetching data',error)
-    }
-}
+//     try {
+//       const response = await fetch(url, options);
+//       const result = await response.json();
+//       const weather = document.getElementById('weatherLi')
+//       const weatherList = document.createElement('li');
+//       const temperature = document.getElementById('temperature')
+//     temperature.textContent = `${result.temp}°C`;
+//     const city = document.getElementById('city');
+//     const dateShow = document.getElementById('dateShow');
+//     dateShow.textContent = new Date();
+//     city.textContent = userWeather;
+//       weatherList.textContent=new Date()
+//       weather.appendChild(weatherList)
+//       weatherList.appendChild(city)
+//       console.log(result);
+//     }catch(error){
+//         console.log('error while fetching data',error)
+//     }
+// }
 
 // function submitData (event){
 //     event.preventDefault();
@@ -104,6 +104,7 @@ async function fetchData() {
       timeEnlist.textContent = item.time;
       listItem.classList.add("list");
       const deleteButton = document.createElement("button");
+      
       deleteButton.classList.add("deleteButton");
       deleteButton.addEventListener("click", () => deleteData(item.id));
       listItem.textContent = item.userInput;
