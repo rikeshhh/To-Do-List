@@ -1,3 +1,9 @@
+body{
+  background-image: url(../image/bg.jpg);
+  background-position: center;
+  object-fit: cover;
+  background-size: cover;
+}
 .container {
   max-width: calc(1250px + 30px);
   padding:0px 15px;
@@ -20,45 +26,16 @@ ul {
   list-style: none;
 }
 .pen {
-  background-color: transparent;
+  background-color: orangered;
   border: none;
   position: absolute;
   right: 0;
-  top: 12px;
-}
-/* #weatherList {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 20px;
-  gap: 10px;
-  background-image: url(/image/sun.jpg);
-  background-position: center;
-  object-fit: cover;
-  border-radius: 50px;
-  font-weight: 800;
-}
-.weatherLi {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 20px;
-  gap: 10px;
-} */
-/* .myList {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: aquamarine;
+  height: 45px;
+  width: 40px;
+  padding: 4px;
   color: white;
-  padding: 0px 15px;
-  margin: 0 auto;
-  height: 32px;
-  color: black;
-  border-radius: 12px;
-} */
+}
+
 .form {
   display: flex;
   justify-content: space-between;
@@ -73,11 +50,18 @@ li {
 }
 
 .deleteButton{
+ 
   background-color: transparent;
-   border-radius: 9px;
+  position: absolute;
+  top: 0px;
+  border: none;
+  right: 0;
 }
-.deleteButton::after{
-  content: 'Delete'; 
+.editButton{
+    border: 2px solid red;
+    padding: 8px;
+    border-radius: 9px;
+    background-color: transparent;
 }
 .deleteButton:hover{
   background-color: black;
@@ -99,11 +83,21 @@ justify-content: space-between;
 align-items: center;
 gap: 22px;
 max-width: 500px;
+background: rgba(255, 255, 255, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 input{
   width: 400px;
-  position: relative;
+  background: rgba(255, 255, 255, 0.2);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(255, 255, 255, 0.3);
 }
 @media only screen and (max-width: 600px) {
   input{
@@ -121,4 +115,15 @@ input{
     gap: 0px;
     flex-direction: column;
   }
+}
+
+
+.parentButton{
+  display: flex;
+  flex-direction: column;
+  gap:4px;
+}
+.parentDiv{
+  display: flex;
+  flex-direction: column;
 }
