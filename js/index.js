@@ -1,5 +1,6 @@
-let formVal = document.querySelector("form");
-formVal.addEventListener("submit", async (event) => {
+if (typeof document !== 'undefined') {
+
+let formVal = document.querySelector("form").addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const userInput = document.getElementById("userInput").value;
@@ -109,5 +110,4 @@ async function editData(itemId) {
   
 }
 fetchData();
-
-
+}
